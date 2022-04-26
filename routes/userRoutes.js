@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
+const sequelize = require('sequelize');
 const keys = require('../config/keys');
 // middlewares
 const auth = require('../middleware/auth');
@@ -150,30 +151,70 @@ router.post(
             await user.save();
 
             res.json(user);
-
-            // Return jsonwebtoken
-            // const payload = {
-            //     user: {
-            //         id: `${keys.jwtPayload}${user.id}`,
-
-            //         // id: user.id,
-            //     },
-            // };
-
-            // jwt.sign(
-            //     payload,
-            //     keys.jwtSecret,
-            //     { expiresIn: 360000 },
-            //     (err, token) => {
-            //         if (err) throw err;
-            //         res.json({ token });
-            //     }
-            // );
         } catch (err) {
             console.log(err.message);
             res.status(500).send('Server Error');
         }
     }
 );
+
+// @route GET api/users/
+// @desc  view all users
+// @access Private
+
+router.get('/', auth, isAdmin, async (req, res) => {
+    try {
+        const users = await User.findAll({
+            attributes: { exclude: ['password'] },
+            where: {
+                role: { [sequelize.Op.not]: 'ADMIN' },
+            },
+        });
+
+        res.json(users);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route GET api/users/id
+// @desc  View a single user
+// @access Private
+router.get('/:id', auth, isAdmin, async (req, res) => {
+    try {
+        const user = await User.findOne({
+            attributes: { exclude: ['password'] },
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        res.json(user);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route DELETE api/users/id
+// @desc  Delete a user
+// @access Private
+
+router.delete('/:id', auth, isAdmin, async (req, res) => {
+    try {
+        // Remove User
+        await User.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        res.json({ msg: 'User removed' });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server Error');
+    }
+});
 
 module.exports = router;
