@@ -25,48 +25,49 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
     }
 
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-lg-5">
-                    <div className="card shadow-lg border-0 rounded-lg mt-5">
-                        <div className="card-header">
-                            <h3 className="text-center font-weight-light my-4">
-                                Official Login
-                            </h3>
-                        </div>
-                        <div className="card-body">
-                            <form onSubmit={(e) => onSubmit(e)}>
-                                <div className="form-floating mb-3">
-                                    <input
-                                        className="form-control"
-                                        id="inputEmail"
-                                        type="email"
-                                        placeholder="name@example.com"
-                                        name="email"
-                                        value={email}
-                                        onChange={(e) => onChange(e)}
-                                        required
-                                    />
-                                    <label htmlFor="inputEmail">
-                                        Email address
-                                    </label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input
-                                        className="form-control"
-                                        id="inputPassword"
-                                        type="password"
-                                        placeholder="Password"
-                                        name="password"
-                                        value={password}
-                                        onChange={(e) => onChange(e)}
-                                        required
-                                    />
-                                    <label htmlFor="inputPassword">
-                                        Password
-                                    </label>
-                                </div>
-                                {/* <div className="form-check mb-3">
+        <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-lg-5">
+                        <div className="card shadow-lg border-0 rounded-lg mt-5">
+                            <div className="card-header">
+                                <h3 className="text-center font-weight-light my-4">
+                                    Official Login
+                                </h3>
+                            </div>
+                            <div className="card-body">
+                                <form onSubmit={(e) => onSubmit(e)}>
+                                    <div className="form-floating mb-3">
+                                        <input
+                                            className="form-control"
+                                            id="inputEmail"
+                                            type="email"
+                                            placeholder="name@example.com"
+                                            name="email"
+                                            value={email}
+                                            onChange={(e) => onChange(e)}
+                                            required
+                                        />
+                                        <label htmlFor="inputEmail">
+                                            Email address
+                                        </label>
+                                    </div>
+                                    <div className="form-floating mb-3">
+                                        <input
+                                            className="form-control"
+                                            id="inputPassword"
+                                            type="password"
+                                            placeholder="Password"
+                                            name="password"
+                                            value={password}
+                                            onChange={(e) => onChange(e)}
+                                            required
+                                        />
+                                        <label htmlFor="inputPassword">
+                                            Password
+                                        </label>
+                                    </div>
+                                    {/* <div className="form-check mb-3">
                                     <input
                                         className="form-check-input"
                                         id="inputRememberPassword"
@@ -80,15 +81,19 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
                                         Remember Password
                                     </label>
                                 </div> */}
-                                <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <a className="small" href="password.html">
-                                        Forgot Password?
-                                    </a>
-                                    <button className="btn btn-primary">
-                                        Login
-                                    </button>
-                                </div>
-                            </form>
+                                    <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <a
+                                            className="small"
+                                            href="password.html"
+                                        >
+                                            Forgot Password?
+                                        </a>
+                                        <button className="btn btn-primary">
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

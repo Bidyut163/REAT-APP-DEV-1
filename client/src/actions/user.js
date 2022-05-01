@@ -56,15 +56,10 @@ export const addUser = (formData, history) => async (dispatch) => {
 
         history.push('/official/admin/users');
     } catch (err) {
-        const errors = err.response.data.errors;
+        const errors = err.response.data;
 
         if (errors) {
-            let errObj = {};
-            errors.map((error) => {
-                errObj[error.param] = error.msg;
-            });
-
-            dispatch({ type: GET_ERRORS, payload: errObj });
+            dispatch({ type: GET_ERRORS, payload: errors });
         }
 
         dispatch({

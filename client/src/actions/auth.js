@@ -49,18 +49,12 @@ export const login = (email, password) => async (dispatch) => {
 
         dispatch(loadUser());
     } catch (err) {
-        console.log('err:', err);
-        const errors = err.response.data.errors;
-        console.log('errors:', err);
-        if (errors) {
-            let errObj = {};
-            errors.map((error) => {
-                errObj[error.param] = error.msg;
-            });
+        const errors = err.response.data;
 
+        if (errors) {
             // errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
 
-            dispatch({ type: GET_ERRORS, payload: errObj });
+            dispatch({ type: GET_ERRORS, payload: errors });
         }
 
         dispatch({
