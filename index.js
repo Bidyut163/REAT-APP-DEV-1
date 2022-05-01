@@ -12,9 +12,11 @@ app.use(express.json({ extended: false }));
 // Define Routes
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
+const appellantUserRoutes = require('./routes/appellants/userRoutes');
 
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/appellants', appellantUserRoutes);
 
 const PORT = process.env.PORT || 5000;
 
