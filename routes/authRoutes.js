@@ -51,7 +51,11 @@ router.post(
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            let errObj = {};
+            errors.array().map((error) => {
+                errObj[error.param] = error.msg;
+            });
+            return res.status(400).json(errObj);
         }
         const { email, password } = req.body;
 
@@ -63,7 +67,7 @@ router.post(
 
             if (!user) {
                 return res.status(400).json({
-                    errors: [{ msg: 'Invalid Credentials' }],
+                    email: 'Email not found',
                 });
             }
 
@@ -72,7 +76,7 @@ router.post(
 
             if (!isMatch) {
                 return res.status(400).json({
-                    errors: [{ msg: 'Invalid Credentials' }],
+                    password: 'Invalid credentials',
                 });
             }
 

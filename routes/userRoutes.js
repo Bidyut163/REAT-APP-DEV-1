@@ -34,7 +34,13 @@ router.post(
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            // return res.status(400).json({ errors: errors.array() });
+
+            let errObj = {};
+            errors.array().map((error) => {
+                errObj[error.param] = error.msg;
+            });
+            return res.status(400).json(errObj);
         }
         const { firstName, lastName, email, password, role } = req.body;
 
@@ -46,7 +52,7 @@ router.post(
 
             if (existingUser) {
                 return res.status(400).json({
-                    errors: [{ msg: 'User already exists' }],
+                    email: 'User already exists',
                 });
             }
 
@@ -116,7 +122,12 @@ router.post(
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            // return res.status(400).json({ errors: errors.array() });
+            let errObj = {};
+            errors.array().map((error) => {
+                errObj[error.param] = error.msg;
+            });
+            return res.status(400).json(errObj);
         }
         const { firstName, lastName, email, password, role } = req.body;
 
@@ -128,7 +139,8 @@ router.post(
 
             if (existingUser) {
                 return res.status(400).json({
-                    errors: [{ msg: 'User already exists' }],
+                    // errors: [{ msg: 'User already exists' }],
+                    email: 'User already exists',
                 });
             }
 
