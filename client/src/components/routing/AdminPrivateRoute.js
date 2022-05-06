@@ -8,11 +8,11 @@ const AdminPrivateRoute = ({
     auth: { isAuthenticated, loading, user },
     ...rest
 }) => {
-    if (!isAuthenticated && !loading) {
+    if (!isAuthenticated) {
         return <Redirect to="/official/login" />;
     }
 
-    if (user && user.role !== 'ADMIN') {
+    if (isAuthenticated && user && user.role !== 'ADMIN') {
         return <Redirect to="/official/login" />;
     }
 

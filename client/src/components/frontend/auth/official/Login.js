@@ -25,7 +25,7 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
     }
 
     return (
-        <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+        <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-5">
@@ -46,7 +46,6 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
                                             name="email"
                                             value={email}
                                             onChange={(e) => onChange(e)}
-                                            required
                                         />
                                         <label htmlFor="inputEmail">
                                             Email address
@@ -61,7 +60,6 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
                                             name="password"
                                             value={password}
                                             onChange={(e) => onChange(e)}
-                                            required
                                         />
                                         <label htmlFor="inputPassword">
                                             Password
