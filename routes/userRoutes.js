@@ -79,6 +79,7 @@ router.post(
                 user: {
                     id: `${keys.jwtPayload}${user.id}`,
                     // id: user.id,
+                    type: 'GOVT',
                 },
             };
 

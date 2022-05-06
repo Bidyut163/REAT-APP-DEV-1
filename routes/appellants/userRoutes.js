@@ -69,6 +69,7 @@ router.post(
             const payload = {
                 user: {
                     id: appellant.id,
+                    type: 'APPELLANT',
                 },
             };
 
@@ -137,6 +138,7 @@ router.post(
             const payload = {
                 user: {
                     id: appellant.id,
+                    type: 'APPELLANT',
                 },
             };
 
