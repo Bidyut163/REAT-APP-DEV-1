@@ -7,6 +7,7 @@ const app = express();
 // Models
 const Appellant = require('./models/Appellant');
 const Appeal = require('./models/Appeal');
+const AppealState = require('./models/AppealState');
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -30,6 +31,9 @@ const PORT = process.env.PORT || 5000;
 // Model relations
 Appeal.belongsTo(Appellant, { constraints: true, onDelete: 'CASCADE' });
 Appellant.hasMany(Appeal);
+
+AppealState.belongsTo(Appeal, { constraints: true, onDelete: 'CASCADE' });
+Appeal.hasOne(AppealState);
 
 sequelize
     // .sync({ force: true })

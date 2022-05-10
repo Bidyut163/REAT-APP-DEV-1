@@ -159,7 +159,7 @@ router.post(
 );
 
 // @route GET api/appellants/auth
-// @desc  get cuurent user
+// @desc  get curent user
 // @access Private
 
 router.get('/auth', auth, async (req, res) => {
