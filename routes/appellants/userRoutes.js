@@ -10,7 +10,6 @@ const auth = require('../../middleware/auth');
 
 // Appellant Model
 const Appellant = require('../../models/Appellant');
-const e = require('express');
 
 // @route POST api/appellants/register
 // @desc  register an appellant
@@ -159,7 +158,7 @@ router.post(
 );
 
 // @route GET api/appellants/auth
-// @desc  get curent user
+// @desc  get current user
 // @access Private
 
 router.get('/auth', auth, async (req, res) => {
