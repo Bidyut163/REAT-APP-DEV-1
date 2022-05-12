@@ -15,11 +15,11 @@ app.use(express.json({ extended: false }));
 // app.get('/', (req, res) => res.send('API IS RUNNING'));
 
 // Define Routes
-const userRoutes = require('./routes/userRoutes');
-const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/officials/userRoutes');
+const authRoutes = require('./routes/officials/authRoutes');
 const appellantUserRoutes = require('./routes/appellants/userRoutes');
 const appealRoutes = require('./routes/appellants/appealRoutes');
-const receptionistRoutes = require('./routes/receptionistRoutes');
+const receptionistRoutes = require('./routes/officials/receptionistRoutes');
 
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
