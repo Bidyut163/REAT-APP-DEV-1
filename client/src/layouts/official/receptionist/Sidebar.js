@@ -11,11 +11,14 @@ const Sidebar = ({ auth: { user } }) => {
             <div className="sb-sidenav-menu">
                 <div className="nav">
                     <div className="sb-sidenav-menu-heading">Core</div>
-                    <Link className="nav-link" to="/official/admin/dashboard">
+                    <Link
+                        className="nav-link"
+                        to="/official/receptionist/panel"
+                    >
                         <div className="sb-nav-link-icon">
                             <i className="fas fa-tachometer-alt"></i>
                         </div>
-                        Dashboard
+                        ReceptionistPanel
                     </Link>
                     <div className="sb-sidenav-menu-heading">Master</div>
                     <Link
@@ -27,9 +30,9 @@ const Sidebar = ({ auth: { user } }) => {
                         aria-controls="collapseLayouts"
                     >
                         <div className="sb-nav-link-icon">
-                            <i className="fas fa-solid fa-user-group"></i>
+                            <i className="fas fa-solid fa-users-gear"></i>
                         </div>
-                        Users
+                        Appeals
                         <div className="sb-sidenav-collapse-arrow">
                             <i className="fas fa-angle-down"></i>
                         </div>
@@ -45,13 +48,13 @@ const Sidebar = ({ auth: { user } }) => {
                                 className="nav-link"
                                 to="/official/admin/users/new"
                             >
-                                Create
+                                New Appeals
                             </Link>
                             <Link
                                 className="nav-link"
                                 to="/official/admin/users"
                             >
-                                View
+                                Forwarded
                             </Link>
                         </nav>
                     </div>

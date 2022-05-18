@@ -12,9 +12,11 @@ import Home from './components/frontend/Home';
 import FormC from './components/frontend/FormC';
 import AppellantLogin from './components/frontend/auth/appellant/Login';
 import Register from './components/frontend/auth/appellant/Register';
-import Login from './components/frontend/auth/official/Login';
+import ThankYouPage from './components/frontend/ThankYouPage';
+import UserLogin from './components/frontend/auth/official/Login';
 // import MasterLayout from './layouts/official/MasterLayout';
 import AdminPrivateRoute from './components/routing/AdminPrivateRoute';
+import ReceptionistPrivateRoute from './components/routing/ReceptionistPrivateRoute';
 import AppellantPrivateRoute from './components/routing/AppellantPrivateRoute';
 
 if (localStorage.token) {
@@ -57,12 +59,21 @@ const App = () => {
                             path="/appellant/formC"
                             component={FormC}
                         /> */}
-                        <Route exact path="/official/login" component={Login} />
+                        <Route
+                            exact
+                            path="/official/login"
+                            component={UserLogin}
+                        />
 
                         <AppellantPrivateRoute
                             exact
                             path="/appellant/formC"
                             component={FormC}
+                        />
+                        <AppellantPrivateRoute
+                            exact
+                            path="/appellant/submitted"
+                            component={ThankYouPage}
                         />
                         {/* <Route
                             path="/official/admin"
@@ -72,6 +83,10 @@ const App = () => {
                         <AdminPrivateRoute
                             path="/official/admin"
                             name="Admin"
+                        />
+                        <ReceptionistPrivateRoute
+                            path="/official/receptionist"
+                            name="Receptionist"
                         />
                     </Switch>
                 </Router>

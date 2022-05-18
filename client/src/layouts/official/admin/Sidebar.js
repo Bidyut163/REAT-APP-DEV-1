@@ -27,7 +27,7 @@ const Sidebar = ({ auth: { user } }) => {
                         aria-controls="collapseLayouts"
                     >
                         <div className="sb-nav-link-icon">
-                            <i className="fas fa-solid fa-user-group"></i>
+                            <i className="fas fa-solid fa-users-gear"></i>
                         </div>
                         Users
                         <div className="sb-sidenav-collapse-arrow">
