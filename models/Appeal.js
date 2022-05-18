@@ -22,12 +22,12 @@ const Appeal = sequelize.define(
             allowNull: false,
         },
 
-        casename: {
+        addressLine1: {
             type: Sequelize.STRING,
             allowNull: false,
         },
 
-        casedescription: {
+        addressLine2: {
             type: Sequelize.STRING,
             allowNull: false,
         },
