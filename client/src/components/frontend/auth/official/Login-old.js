@@ -33,63 +33,67 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
         <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-6">
-                        <div className="card mb-4 mx-4">
-                            <div className="card-body p-4">
+                    <div className="col-lg-5">
+                        <div className="card shadow-lg border-0 rounded-lg mt-5">
+                            <div className="card-header">
+                                <h3 className="text-center font-weight-light my-4">
+                                    Official Login
+                                </h3>
+                            </div>
+                            <div className="card-body">
                                 <form onSubmit={(e) => onSubmit(e)}>
-                                    <h1>Govt Login</h1>
-                                    <p className="text-medium-emphasis">
-                                        Sign In to your account
-                                    </p>
-                                    <div className="input-group mb-3">
-                                        <span className="input-group-text">
-                                            <i class="fa-solid fa-user"></i>
-                                            {/* <svg className="icon">
-                                                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
-                                            </svg> */}
-                                        </span>
+                                    <div className="form-floating mb-3">
                                         <input
                                             className="form-control"
+                                            id="inputEmail"
                                             type="email"
-                                            placeholder="Email"
+                                            placeholder="name@example.com"
                                             name="email"
                                             value={email}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        <label htmlFor="inputEmail">
+                                            Email address
+                                        </label>
                                     </div>
-                                    <div className="input-group mb-4">
-                                        <span className="input-group-text">
-                                            <i class="fa-solid fa-lock"></i>
-                                            {/* <svg className="icon">
-                                                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use>
-                                            </svg> */}
-                                        </span>
+                                    <div className="form-floating mb-3">
                                         <input
                                             className="form-control"
+                                            id="inputPassword"
                                             type="password"
                                             placeholder="Password"
                                             name="password"
                                             value={password}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        <label htmlFor="inputPassword">
+                                            Password
+                                        </label>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-6">
-                                            <button
-                                                className="btn btn-primary px-4"
-                                                type="submit"
-                                            >
-                                                Login
-                                            </button>
-                                        </div>
-                                        <div className="col-6 text-end">
-                                            <button
-                                                className="btn btn-link px-0"
-                                                type="button"
-                                            >
-                                                Forgot password?
-                                            </button>
-                                        </div>
+                                    {/* <div className="form-check mb-3">
+                                    <input
+                                        className="form-check-input"
+                                        id="inputRememberPassword"
+                                        type="checkbox"
+                                        value=""
+                                    />
+                                    <label
+                                        className="form-check-label"
+                                        htmlFor="inputRememberPassword"
+                                    >
+                                        Remember Password
+                                    </label>
+                                </div> */}
+                                    <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <a
+                                            className="small"
+                                            href="password.html"
+                                        >
+                                            Forgot Password?
+                                        </a>
+                                        <button className="btn btn-primary">
+                                            Login
+                                        </button>
                                     </div>
                                 </form>
                             </div>

@@ -40,6 +40,7 @@ const Login = ({ appellantLogin, auth: { isAuthenticated, userType } }) => {
                                         </p>
                                         <div className="input-group mb-3">
                                             <span className="input-group-text">
+                                                <i class="fa-solid fa-user"></i>
                                                 {/* <svg className="icon">
                                                 <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
                                             </svg> */}
@@ -55,6 +56,7 @@ const Login = ({ appellantLogin, auth: { isAuthenticated, userType } }) => {
                                         </div>
                                         <div className="input-group mb-4">
                                             <span className="input-group-text">
+                                                <i class="fa-solid fa-lock"></i>
                                                 {/* <svg className="icon">
                                                 <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use>
                                             </svg> */}
@@ -94,10 +96,10 @@ const Login = ({ appellantLogin, auth: { isAuthenticated, userType } }) => {
                                     <div>
                                         <h2>Sign up</h2>
                                         <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipisicing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et dolore magna aliqua.
+                                            For the appellants who does not have
+                                            an account here, you need to
+                                            register as an appellant first.
+                                            Please create your account here.
                                         </p>
                                         <Link
                                             className="btn btn-lg btn-outline-light mt-3"
