@@ -17,9 +17,10 @@ router.post(
     [
         body('firstName', 'Please enter a first name').isLength({ min: 1 }),
         body('lastName', 'Please enter a last name').isLength({ min: 1 }),
-
-        body('casename', 'Please include an casename').isLength({ min: 1 }),
-        body('casedescription', 'Please include an casedescription').isLength({
+        body('addressLine1', 'Please include an addressLine1').isLength({
+            min: 1,
+        }),
+        body('addressLine2', 'Please include an addressLine2').isLength({
             min: 1,
         }),
     ],
@@ -36,15 +37,15 @@ router.post(
             return res.status(400).json(errObj);
         }
 
-        const { firstName, lastName, casename, casedescription } = req.body;
+        const { firstName, lastName, addressLine1, addressLine2 } = req.body;
         const appellantId = req.user.id;
 
         try {
             const appeal = Appeal.build({
                 firstName,
                 lastName,
-                casename,
-                casedescription,
+                addressLine1,
+                addressLine2,
                 appellantId,
             });
 
